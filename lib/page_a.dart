@@ -2,29 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_routing/routes.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class PageA extends StatefulWidget {
+  const PageA({super.key});
+
+  @override
+  State<PageA> createState() => _PageAState();
+}
+
+class _PageAState extends State<PageA> {
+  static Map<String, String>? data;
+
+  @override
+  void initState() {
+    super.initState();
+    data = Get.rootDelegate.parameters;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text("Page A"),
       ),
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(
-              onPressed: () => Get.rootDelegate.toNamed(
-                Routes.PAGEA,
-                parameters: {
-                  "name": "Lisa",
-                  "age": 37.toString(),
-                },
-              ),
-              child: const Text("Send Parameters to A"),
-            ),
-            const SizedBox(height: 20.0),
+            Text("Transferred data: \nName: ${data!["name"]} \nAge:${data!["age"]}"),
             Row(
               children: [
                 ElevatedButton(
