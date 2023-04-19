@@ -23,15 +23,19 @@ class _PageAState extends State<PageA> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Page A"),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 20),
             Text("Transferred data: \nName: ${data!["name"]} \nAge:${data!["age"]}"),
+            const SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => Get.rootDelegate.toNamed(
+                  onPressed: () => Get.rootDelegate.offNamed(
                     Routes.PAGEB,
                     parameters: {
                       "name": "Budyanto",
@@ -40,8 +44,9 @@ class _PageAState extends State<PageA> {
                   ),
                   child: const Text("Send Parameters to B"),
                 ),
+                const SizedBox(width: 30),
                 ElevatedButton(
-                  onPressed: () => Get.rootDelegate.toNamed(
+                  onPressed: () => Get.rootDelegate.offNamed(
                     Routes.PAGEC,
                     parameters: {
                       "name": "Angeline",

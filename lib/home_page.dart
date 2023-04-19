@@ -10,12 +10,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => Get.rootDelegate.toNamed(
+              onPressed: () => Get.rootDelegate.offNamed(
                 Routes.PAGEA,
                 parameters: {
                   "name": "Lisa",
@@ -26,9 +28,10 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20.0),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => Get.rootDelegate.toNamed(
+                  onPressed: () => Get.rootDelegate.offNamed(
                     Routes.PAGEB,
                     parameters: {
                       "name": "Budyanto",
@@ -37,8 +40,9 @@ class HomePage extends StatelessWidget {
                   ),
                   child: const Text("Send Parameters to B"),
                 ),
+                const SizedBox(width: 30),
                 ElevatedButton(
-                  onPressed: () => Get.rootDelegate.toNamed(
+                  onPressed: () => Get.rootDelegate.offNamed(
                     Routes.PAGEC,
                     parameters: {
                       "name": "Angeline",
